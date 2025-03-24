@@ -4,7 +4,7 @@ import { Colors } from '@/constants/Colors';  // Import Colors from your constan
 export type ThemedTextProps = TextProps & {
   lightColor?: string;
   darkColor?: string;
-  type?: 'default' | 'title' | 'defaultSemiBold' | 'subtitle' | 'link';
+  type?: 'default' | 'title' | 'defaultSemiBold' | 'subtitle' | 'link' | 'count' | 'staticCount';
 };
 
 export function ThemedText({
@@ -25,6 +25,8 @@ export function ThemedText({
         type === 'defaultSemiBold' ? styles.defaultSemiBold : undefined,
         type === 'subtitle' ? styles.subtitle : undefined,
         type === 'link' ? styles.link : undefined,
+        type === 'count' ? styles.count : undefined,
+        type === 'staticCount' ? styles.staticCount : undefined,
         style,
       ]}
       {...rest}
@@ -54,6 +56,18 @@ const styles = StyleSheet.create({
   link: {
     lineHeight: 30,
     fontSize: 16,
-    color: '#0A7EA4FF',
+    color: '#0A7EA4FF',       
+  },
+  count: {
+    fontSize: 100, 
+    fontFamily: 'Montserrat',
+    fontWeight: 'bold',
+  },
+  staticCount: {
+    fontSize: 20,
+    fontFamily: 'Montserrat',
+    marginLeft: -2, 
+    marginTop: 80,
+    fontWeight: 'bold',
   },
 });
